@@ -1,2 +1,2 @@
 company,product,approvedone,approvedtwo,killdays,boxweight,code,colour,slaughtersite,numtoprint
-TAMAR,DICED CHICKEN THIGH 20MM,rm02198 HWF  WR,UK RED TRACTOR NO ALLERGENS,7,20,C08TM1X20FKST,blue,GB 3011,1
+SALADWORKS,CHICKEN BREAST 11-18G,RIM463    123139,m&s   UK RED TRACTOR,7,20,C07bf1x20fkss,blue,UK (NI) 9502,3
