@@ -1,0 +1,45 @@
+(defun number-of-labels-required-from-user ()
+  (interactive)
+  (read-number "How many labels do you want to print?"))
+
+;Creating Hashes
+(setq addoHash (make-hash-table :test 'equal))
+(puthash "19mm diced breast fillet" "C02BF1X10FKAD" addoHash)
+(puthash "19mm diced breast thigh" "C04TM1X10FKAD" addoHash)
+;(hash-table-keys addoHash)
+(setq saladworksHash (make-hash-table :test 'equal))
+(puthash "Chicken Diced Thigh 15mm" "C03TM1X20FKSS" saladworksHash)
+(puthash "Breast 95-100g" "C08BF1X20FKSS" saladworksHash)
+;(hash-table-keys addoHash)
+
+(defun full-file-name (x)
+  (interactive)
+  (setq returnedfilename (format
+			  "C:/Documents and Settings/S12Despatch.SML/Desktop/NEW LABEL SYSTEM/DO NOT OPEN data sources/%s" x)))
+
+(defun company-select ()
+  (interactive)
+  (setq companychoice (message "%s"
+	   (ido-completing-read "Which Company?"
+				'("Addo Poole Bakery"
+				  "Saladworks"
+				  )))))
+
+(defun hash-select (x)
+  (interactive)
+  (cond ((equal x "Addo Poole Bakery") (hash-table-keys addoHash))
+	((equal x "Saladworks") (hash-table-keys saladworksHash))
+	))
+
+(defun option-select (promptmessage listofoptions)
+  (interactive)
+  (setq itemselected (message "%s"
+	   (ido-completing-read promptmessage 
+				'listofoptions))))
+
+;Create generic "select from" function for picking slaughter site, company etc!
+(option-select '("test prompt message" ("first choice"
+				       "second choice"
+				       "third choice"
+				       )))
+

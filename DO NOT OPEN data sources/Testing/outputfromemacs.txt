@@ -1,0 +1,2 @@
+company,product,approvedone,approvedtwo,killdays,boxweight,code,colour,slaughtersite,numtoprint
+TAMAR,DICED CHICKEN BREAST 20MM,rm02548 HWF  WR,UK RED TRACTOR NO ALLERGENS,7,20,C08IF1X20FKST,orange,GB 3005,4

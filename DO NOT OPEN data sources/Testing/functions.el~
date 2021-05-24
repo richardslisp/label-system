@@ -1,0 +1,54 @@
+(defun hash-maker (companyname)
+  (interactive)
+  (setq hashname (concat companyname "Hash"))
+  (setq hashname (make-hash-table :test 'equal)))
+
+(setq SaladworksHash (hash-maker '"Saladworks"))
+(puthash "CHICKEN DICED THIGH 15MM" '("C03TM1X20FKSS") SaladworksHash)
+(puthash "BREAST 95-100G" '("Breast 95-100g" "RIM464   123140" "M&S UK RED TRACTOR" 7,"C08BF1X20FKSS") SaladworksHash)
+(hash-table-keys SaladworksHash)
+(gethash "Breast 95-100g" SaladworksHash)
+
+
+(hash-maker '"AddoPooleBakery")
+(puthash "Chicken Diced Thigh 15mm" "C03TM1X20FKSS" AddoHash)
+(puthash "19mm diced breast fillet" "C02BF1X10FKAD" AddoHash)
+(puthash "19mm diced breast thigh" "C04TM1X10FKAD" AddoHash)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun number-of-labels-required-from-user ()
+  (interactive)
+  (read-number "How many labels do you want to print?"))
+
+(defun full-file-name (x)
+  (interactive)
+  (setq returnedfilename (format
+			  "C:/Documents and Settings/S12Despatch.SML/Desktop/NEW LABEL SYSTEM/DO NOT OPEN data sources/%s" x)))
+
+(defun company-select ()
+  (interactive)
+  (setq companychoice (message "%s"
+	   (ido-completing-read "Which Company?"
+				'("ADDO POOLE BAKERY" "BAKKAVOR MEALS LONDON ELVEDEN" "BENSON PARK" "CRANSWICK GOURMET PASTRY" "FARMERS BOY" "GINSTERS" "KERRY NOON" "KERRY SPURWAY" "KETTLEBY FOODS" "PETERS" "ROWAN" "SALADWORKS" "TAMAR" "WALKERS MIDSHIRE")))))
+
+(defun hash-select (x)
+  (interactive)
+	(cond ((equal x "ADDO POOLE BAKERY") (ido-completing-read "Which Product? " (hash-table-keys addoHash)))
+	      ((equal x "SALADWORKS") (ido-completing-read "Which Product? " (hash-table-keys saladworksHash)))
+	      ))
+
+(setq testonetwothree (hash-select (company-select)))
+
+
+
+
+
+
+
+
+
+
+
+
+

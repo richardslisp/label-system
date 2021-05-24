@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<XMLScript Version="2.0">
+  <Command>
+    <Print>
+      <Format CloseAtEndOfJob="true" SaveAtEndOfJob="false">C:\Documents and Settings\S12Despatch.SML\Desktop\NEW LABEL SYSTEM\DO NOT OPEN data sources\Testing\autotest.btw</Format>
+      <PrintSetup />
+    </Print>
+  </Command>
+</XMLScript>

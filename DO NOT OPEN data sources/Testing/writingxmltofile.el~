@@ -1,0 +1,31 @@
+(defun dolav-labels ()
+  (interactive)
+  (let (
+	(theoutputfile '"C:/Documents and Settings/S12Despatch.SML/Desktop/dolavs.btbat")
+	)
+    )
+  (write-region
+   (format "<?xml version=\"1.0\"?> <XMLScript Version=\"2.0\"> <Command> <Print> <Format CloseAtEndOfJob=\"true\" SaveAtEndOfJob=\"false\">P:/BARTENDER LABELS/BARTENDER LABELS/Primary Prep/CATEGORY 3.btw</Format> <PrintSetup> <IdenticalCopiesOfLabel>10</IdenticalCopiesOfLabel> </PrintSetup> </Print> </Command> </XMLScript>")
+    nil
+    theoutputfile)
+  (async-shell-command "C:/Documents and Settings/S12Despatch.SML/Desktop/dolavs.btbat"))
+
+(defun input-slice-dice-daily-code ()
+  (interactive)
+  (let (
+	(slicedicetextfile '"C:/Documents and Settings/S12Despatch.SML/Desktop/NEW LABEL SYSTEM/DO NOT OPEN data sources/SLICEDICECODE.txt")
+	)
+    )
+	(write-region (read-string "Enter Slice/Dice Code for Today!") nil slicedicetextfile)
+	(message "Slice Dice Code copied to text file")
+	)
+
+(defun morning ()
+  (interactive)
+  (input-slice-dice-daily-code)
+  (dolav-labels)
+  )
+
+(morning)
+
+  

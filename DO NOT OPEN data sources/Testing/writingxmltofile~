@@ -1,0 +1,24 @@
+What if I wrote a function in emacs lisp that edited the XML then output it as a string to a file with a btbat extension, that file is then opened. Test with dolav labels.
+
+
+(defun dolav-labels ()
+  (interactive)
+  (setq theoutputfile "C:/Documents and Settings/S12Despatch.SML/Desktop/dolavs.btbat")
+  (write-region 
+   (format
+"<?xml version=\"1.0\"?>
+<XMLScript Version=\"2.0\">
+  <Command>
+    <Print>
+      <Format CloseAtEndOfJob=\"true\" SaveAtEndOfJob=\"false\">P:/BARTENDER LABELS/BARTENDER LABELS/Primary Prep/CATEGORY 3.btw</Format>
+      <PrintSetup>
+        <IdenticalCopiesOfLabel>%d</IdenticalCopiesOfLabel>
+      </PrintSetup>
+    </Print>
+  </Command>
+</XMLScript>" (read-number "How many dolav labels do you want to print?")) nil 'theoutputfile)
+  (async-shell-command "C:/Documents and Settings/S12Despatch.SML/Desktop/dolavs.btbat")
+  )
+
+
+
