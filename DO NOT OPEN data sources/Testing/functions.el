@@ -6,7 +6,9 @@
 
 (defun slaughter-site-select ()
   (interactive)
-  (message "%s" (ido-completing-read "Which Slaughter Site?" '("UK (NI) 9502" "GB 3005" "GB 3011" "GB 4014" "GB 8016" "GB 3007 / 4014 / 8016"))))
+  (setq returns (ido-completing-read "Which Slaughter Site?" '("UK (NI) 9502" "GB 3005" "GB 3011" "GB 4014" "GB 8016" "GB 3007 / 4014 / 8016"))))
+
+
 
 (defun number-of-labels-to-print (orderweight bagweight)
   (interactive)
@@ -20,8 +22,8 @@
   (setq total-labels-incl-production (+ x 1))
   (message "Total Labels = %s" total-labels-incl-production))
 
-(setq num-of-labels-no-production (number-of-labels-to-print 154 10))
-(setq num-of-labels-no-production (+ (string-to-number(num-of-labels-no-production 1))))
+;(setq num-of-labels-no-production (number-of-labels-to-print 154 10))
+;(setq num-of-labels-no-production (+ (string-to-number(num-of-labels-no-production 1))))
 
 (defun hash-select (x)
   (interactive)
@@ -38,3 +40,10 @@
   (setq selection (ido-completing-read "Which Product? "
 				       (hash-table-keys (hash-select company))))
   (message "%s" (gethash selection correct-hash )))
+
+
+
+       
+(defun alt-num-labels-to-print ()
+  (interactive)
+  (message "%s" (read-number "how many labels to print? " )))
