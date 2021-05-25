@@ -57,51 +57,52 @@
 								      (message "%s" (concat "+" (message "%s"(read-number "How many days into the future?")))))))))
 
 
+(defun basic-time-string ()
+  (interactive)
+  (setq return (decode-time(org-time-string-to-time (org-read-date)))))
+
+
+(defun month-converter (x)
+  (interactive)
+  (setq inputmonth (message "%s" x))
+  (cond
+   ((equal inputmonth "1") (setq month "JAN"))
+   ((equal inputmonth "2") (setq month "FEB"))
+   ((equal inputmonth "3") (setq month "MAR"))
+   ((equal inputmonth "4") (setq month "APR"))
+   ((equal inputmonth "5") (setq month "MAY"))
+   ((equal inputmonth "6") (setq month "JUN"))
+   ((equal inputmonth "7") (setq month "JUL"))
+   ((equal inputmonth "8") (setq month "AUG"))
+   ((equal inputmonth "9") (setq month "SEP"))
+   ((equal inputmonth "10") (setq month "OCT"))
+   ((equal inputmonth "11") (setq month "NOV"))
+   ((equal inputmonth "12") (setq month "DEC"))))
+
+
+(defun year-converter (x)
+  (interactive)
+  (setq inputyear (message "%s" x))
+  (cond
+   ((equal inputyear "2021") (setq year "21"))
+   ((equal inputyear "2022") (setq year "22"))
+   ((equal inputyear "2023") (setq year "23"))
+   ((equal inputyear "2024") (setq year "24"))))
+
+
 (defun new-time-function ()
   (interactive)
-  (setq baselist (decode-time(org-time-string-to-time (org-read-date))))
+  (setq baselist (basic-time-string))
   ;;; DAY ;;;
   (setq day (message "%s" (nth 3 baselist)))
-  (if (= (length day) 1)
-      (setq day (concat "0" (nth 3 baselist)))
-    (setq day (nth 3 baselist))
-    )
+  (if (= (length day) 1) (setq day (concat "0" (message "%s" (nth 3 baselist)))) (setq day (message "%s" (nth 3 baselist))))
   ;;; MONTHS ;;;
-  (setq month (nth 4 baselist))
-  (cond
-   ((equal month 1) (setq month "JAN"))
-   ((equal month 2) (setq month "FEB"))
-   ((equal month 3) (setq month "MAR"))
-   ((equal month 4) (setq month "APR"))
-   ((equal month 5) (setq month "MAY"))
-   ((equal month 6) (setq month "JUN"))
-   ((equal month 7) (setq month "JUL"))
-   ((equal month 8) (setq month "AUG"))
-   ((equal month 9) (setq month "SEP"))
-   ((equal month 10) (setq month "OCT"))
-   ((equal month 11) (setq month "NOV"))
-   ((equal month 12) (setq month "DEC")))
+  (setq month (month-converter (nth 4 baselist)))
   ;;; YEAR ;;;
-  (setq year (nth 5 baselist))
-  (cond
-   ((equal year 2021) (setq year "21"))
-   ((equal year 2022) (setq year "22"))
-   ((equal year 2023) (setq year "23"))
-   ((equal year 2024) (setq year "24")))
+  (setq year (year-converter (nth 5 baselist)))
   ;;; FINAL ;;;
-  (setq string-return (message "%s %s %s" day month year))
-  (setq string-return (cons baselist string-return))
+  (setq string-return (cons baselist (message "%s %s %s" day month year)
   )
 
 (new-time-function)
 
-("25 MAY 21" 0 0 0 25 5 2021 2 t 3600)
-
-(nth 1 (new-time-function))
-
-
-
-
-
-
-			   
