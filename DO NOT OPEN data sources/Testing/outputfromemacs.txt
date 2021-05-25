@@ -1,2 +1,2 @@
-company,product,approvedone,approvedtwo,killdays,boxweight,code,colour,slaughtersite,numtoprint
-SALADWORKS,CHICKEN BREAST 11-18G,RIM463    123139,m&s   UK RED TRACTOR,7,20,C07bf1x20fkss,blue,UK (NI) 9502,3
+company,product,approvedone,approvedtwo,killdays,code,colour,slaughtersite,numtoprint
+TAMAR,DICED CHICKEN BREAST 20MM,RM01077 M&S,UK RED TRACTOR NO ALLERGENS,7,C09IF1X20FKST,green,UK (NI) 9502,2
