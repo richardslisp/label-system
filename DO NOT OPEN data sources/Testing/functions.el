@@ -8,22 +8,19 @@
   (interactive)
   (setq returns (ido-completing-read "Which Slaughter Site?" '("UK (NI) 9502" "GB 3005" "GB 3011" "GB 4014" "GB 8016" "GB 3007 / 4014 / 8016"))))
 
-
-
 (defun number-of-labels-to-print (orderweight bagweight)
   (interactive)
   (setq total-labels (floor (/ (+ orderweight (* 0.5 bagweight)) bagweight)))
-  (message "Total Labels = %s" total-labels))
+					;(message "Total Labels = %s" total-labels)
+  )
 
 ;(number-of-labels-to-print 802 5)
 
-(defun number-of-labels-to-print-including-production (x)
+(defun number-of-labels-to-print-including-production (x y)
   (interactive)
-  (setq total-labels-incl-production (+ x 1))
-  (message "Total Labels = %s" total-labels-incl-production))
-
-;(setq num-of-labels-no-production (number-of-labels-to-print 154 10))
-;(setq num-of-labels-no-production (+ (string-to-number(num-of-labels-no-production 1))))
+  (setq total-labels-incl-production (+ x (number-of-labels-to-print(x y))))
+					;(message "Total Labels = %s" total-labels-incl-production))
+  )
 
 (defun hash-select (x)
   (interactive)
