@@ -1,2 +1,0 @@
-company,product,approvedone,approvedtwo,killdays,code,colour,slaughtersite,numtoprint
-TAMAR,DICED CHICKEN BREAST 20MM,RM01077 M&S,UK RED TRACTOR NO ALLERGENS,7,C09IF1X20FKST,green,UK (NI) 9502,2
